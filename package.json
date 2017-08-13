@@ -1,0 +1,26 @@
+{
+  "name": "sequelize-burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikkanlaz/SequelizedBurger.git"
+  },
+  "author": "ikkanlaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikkanlaz/SequelizedBurger/issues"
+  },
+  "homepage": "https://github.com/ikkanlaz/SequelizedBurger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mysql2": "^1.4.0",
+    "sequelize": "^4.4.7"
+  }
+}
