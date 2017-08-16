@@ -6,6 +6,8 @@ var exHandlebars = require("express-handlebars");
 var app = express();
 var port = process.env.PORT || 3000;
 
+var db = require("./models");
+
 //Add middleware to the Express instance that parses the body of the incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,8 +25,10 @@ app.engine("handlebars", exHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/burgerController.js");
+require("./routes/burger-routes.js")(app);
 
-app.use("/", routes);
-
-app.listen(port);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(port, function() {
+    console.log("App listening on PORT " + port);
+  });
+});
